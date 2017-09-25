@@ -1097,10 +1097,10 @@ static void id3v2_read_internal(AVIOContext *pb, AVDictionary **metadata,
     merge_date(metadata);
 }
 
-void ff_id3v2_read_dict(AVIOContext *pb, AVDictionary **metadata,
+void ff_id3v2_read_dict(AVFormatContext *s, AVIOContext *pb, AVDictionary **metadata,
                         const char *magic, ID3v2ExtraMeta **extra_meta)
 {
-    id3v2_read_internal(pb, metadata, NULL, magic, extra_meta, 0);
+    id3v2_read_internal(pb, metadata, s, magic, extra_meta, 0);
 }
 
 void ff_id3v2_read(AVFormatContext *s, const char *magic,
